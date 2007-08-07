@@ -1,3 +1,5 @@
+CC	:=	gcc
+
 CFLAGS	:=	-Wall -O2 -s
 
 ifneq (,$(findstring MINGW,$(shell uname -s)))
