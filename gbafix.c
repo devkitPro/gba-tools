@@ -1,5 +1,5 @@
 /*
-	"$Id: gbafix.c,v 1.1 2007-01-20 15:30:41 wntrmute Exp $"
+	"$Id: gbafix.c,v 1.2 2008-07-30 17:12:51 wntrmute Exp $"
 
 	DevkitPro GBA ROM fix utility
 
@@ -21,7 +21,7 @@
 	Please report all bugs and problems through the bug tracker at
 	"http://sourceforge.net/tracker/?group_id=114505&atid=668551".
 
-	"$Header: /lvm/shared/ds/ds/cvs/devkitpro-cvsbackup/tools/gba/gbatools/gbafix.c,v 1.1 2007-01-20 15:30:41 wntrmute Exp $"
+	"$Header: /lvm/shared/ds/ds/cvs/devkitpro-cvsbackup/tools/gba/gbatools/gbafix.c,v 1.2 2008-07-30 17:12:51 wntrmute Exp $"
 
 */
 //---------------------------------------------------------------------------------
@@ -45,6 +45,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 #define VER		"1.04"
 #define ARGV	argv[arg]
@@ -53,18 +54,18 @@
 
 typedef struct
 {
-	unsigned long	start_code;			// B instruction
-	unsigned char	logo[0xA0-0x04];	// logo data
-	char			title[0xC];			// game title name
-	unsigned long	game_code;			//
-	unsigned short	maker_code;			//
-	unsigned char	fixed;				// 0x96
-	unsigned char	unit_code;			// 0x00
-	unsigned char	device_type;		// 0x80
-	unsigned char	unused[7];			//
-	unsigned char	game_version;		// 0x00
-	unsigned char	complement;			// 800000A0..800000BC
-	unsigned short	checksum;			// 0x0000
+	uint32_t	start_code;			// B instruction
+	uint8_t		logo[0xA0-0x04];	// logo data
+	uint8_t		title[0xC];			// game title name
+	uint32_t	game_code;			//
+	uint16_t	maker_code;			//
+	uint8_t		fixed;				// 0x96
+	uint8_t		unit_code;			// 0x00
+	uint8_t		device_type;		// 0x80
+	uint8_t		unused[7];			//
+	uint8_t		game_version;		// 0x00
+	uint8_t		complement;			// 800000A0..800000BC
+	uint16_t	checksum;			// 0x0000
 } Header;
 
 
