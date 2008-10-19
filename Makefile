@@ -10,8 +10,12 @@ ifneq (,$(findstring Linux,$(shell uname -s)))
 	CFLAGS += -static
 endif
 
+ifneq (,$(findstring Darwin,$(shell uname -s)))
+	CFLAGS += -mmacosx-version-min=10.4 -isysroot /Developer/SDKs/MacOSX10.4u.sdk -arch i386 -arch ppc
+endif
+
 tools	:=	$(patsubst %.c,%$(exeext),$(wildcard *.c)) \
-			$(patsubst %.cpp,%$(exeext),$(wildcard *.cpp))
+		$(patsubst %.cpp,%$(exeext),$(wildcard *.cpp))
 
 
 all:	$(tools)
@@ -22,10 +26,10 @@ clean:
 gbfs.exe	:	gbfs.c
 	$(CC) $< -o $@ $(CFLAGS) -liberty
 
-%$(exeext)	:: %.c
+%$(exeext)	: %.c
 	$(CC) $< -o $@ $(CFLAGS)
 
-%$(exeext)	:: %.cpp
+%$(exeext)	: %.cpp
 	$(CXX) $< -o $@ $(CFLAGS)
 
 install:
