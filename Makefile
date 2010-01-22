@@ -11,7 +11,8 @@ ifneq (,$(findstring Linux,$(shell uname -s)))
 endif
 
 ifneq (,$(findstring Darwin,$(shell uname -s)))
-	CFLAGS += -mmacosx-version-min=10.4 -isysroot /Developer/SDKs/MacOSX10.4u.sdk -arch i386 -arch ppc
+	SDK	:=	/Developer/SDKs/MacOSX10.4u.sdk
+	CFLAGS += -mmacosx-version-min=10.4 -isysroot $(SDK) -Wl,-syslibroot,$(SDK) -arch i386 -arch ppc
 endif
 
 tools	:=	$(patsubst %.c,%$(exeext),$(wildcard *.c)) \
