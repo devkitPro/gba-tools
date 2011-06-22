@@ -1,6 +1,6 @@
 CC	:=	gcc
 
-CFLAGS	:=	-Wall -O2 -s
+CFLAGS	:=	-Wall -O2
 
 ifneq (,$(findstring MINGW,$(shell uname -s)))
 	exeext		:= .exe
