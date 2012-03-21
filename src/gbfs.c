@@ -48,17 +48,7 @@ reformatted for consistency
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-
-#ifdef __MINGW32__
-#include <libiberty.h>
-#else
 #include <libgen.h>
-#endif
-
-//char *basename (const char *fname);
-/* if your system's C library does not have basename(), then
-   you will need to link in djbasename.c, which is distributed
-   under the GNU LGPL */
 
 typedef unsigned short u16;
 typedef unsigned long u32;  /* this needs to be changed on 64-bit systems */
