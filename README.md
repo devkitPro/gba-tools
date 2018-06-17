@@ -4,8 +4,9 @@ Collection of tools for Game Boy Advance development.
 
 ## gbafix
 
-Fixes GBA ROMs.
-Authors: Dark Fader, BlackThunder and WinterMute.
+Pads and patches GBA ROMs.
+
+Authors: Dark Fader, BlackThunder and [WinterMute](https://github.com/WinterMute).
 
 Usage:
 ```
@@ -21,8 +22,9 @@ gbafix <romfile> [-p] [-t[title]] [-g<game_code>] [-m<maker_code>] [-v<version>]
 
 ## gbalzss
 
-ROM compressor/de-compressor.
-Author: Michael Theall (mtheall)
+Compresses and uncompresses ROMs.
+
+Author: [Michael Theall](https://github.com/mtheall)
 
 Usage:
 ```
@@ -40,7 +42,8 @@ gbalzss [-h|--help] [--lz11] [--vram] <d|e> <infile> <outfile>
 ## gbfs
 
 Creates a GBFS archive.
-Author: Damian Yerrick
+
+Author: [Damian Yerrick](https://github.com/pinobatch)
 
 Usage:
 ```
@@ -53,7 +56,8 @@ gbfs archive [file...]
 ## insgbfs
 
 Inserts a GBFS file (or any other file) into a GBFS_SPACE (identified by symbol name) in a ROM.
-Author: Damian Yerrick
+
+Author: [Damian Yerrick](https://github.com/pinobatch)
 
 Usage:
 ```
@@ -67,7 +71,8 @@ insgbfs sourcefile romfile symname
 ## lsgbfs
 
 Lists objects in a GBFS file.
-Author: Damian Yerrick
+
+Author: [Damian Yerrick](https://github.com/pinobatch)
 
 Usage
 ```
@@ -79,7 +84,8 @@ lsgbfs file
 ## ungbfs
 
 Dumps the objects in a GBFS file to separate files.
-Author: Damian Yerrick
+
+Author: [Damian Yerrick](https://github.com/pinobatch)
 
 Usage:
 ```
