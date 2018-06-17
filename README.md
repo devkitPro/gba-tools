@@ -1,6 +1,6 @@
 # gba-tools
 
-Collection of tools for Gameboy Advance development.
+Collection of tools for Game Boy Advance development.
 
 ## gbafix
 
