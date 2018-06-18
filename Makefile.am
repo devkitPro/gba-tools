@@ -11,4 +11,4 @@ insgbfs_SOURCES	=	src/insgbfs.c
 lsgbfs_SOURCES	=	src/lsgbfs.c src/gbfs.h
 ungbfs_SOURCES	=	src/ungbfs.c src/gbfs.h
 
-EXTRA_DIST = autogen.sh
+EXTRA_DIST = autogen.sh README.md
