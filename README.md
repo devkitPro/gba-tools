@@ -6,7 +6,7 @@ Collection of tools for Game Boy Advance development.
 
 Pads and patches GBA ROMs.
 
-Authors: Dark Fader, BlackThunder and [WinterMute](https://github.com/WinterMute).
+Authors: [Dark Fader](https://github.com/darkfader), BlackThunder and [WinterMute](https://github.com/WinterMute).
 
 Usage:
 ```
