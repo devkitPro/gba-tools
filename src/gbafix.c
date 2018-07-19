@@ -61,7 +61,7 @@ typedef struct
 	uint16_t	maker_code;			//
 	uint8_t		fixed;				// 0x96
 	uint8_t		unit_code;			// 0x00
-	uint8_t		device_type;		// 0x80
+	uint8_t		device_type;		// 0x00
 	uint8_t		unused[7];			//
 	uint8_t		game_version;		// 0x00
 	uint8_t		complement;			// 800000A0..800000BC
@@ -99,7 +99,7 @@ const Header good_header =
 	// unit_code
 	0x00,
 	// device type
-	0x80,
+	0x00,
 	// unused
 	{ 0x00,0x00,0x00,0x00,0x00,0x00,0x00 },
 	// game version
