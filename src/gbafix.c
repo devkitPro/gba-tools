@@ -141,7 +141,7 @@ int main(int argc, char *argv[])
 	if (argc <= 1)
 	{
 		printf("GBA ROM fixer v"VER" by Dark Fader / BlackThunder / WinterMute \n");
-		printf("Syntax: gbafix <rom.gba> [-p] [-t[title]] [-g<game_code>] [-m<maker_code>] [-v<version>]\n");
+		printf("Syntax: gbafix <rom.gba> [-p] [-t[title]] [-c<game_code>] [-m<maker_code>] [-r<version>]\n");
 		printf("\n");
 		printf("parameters:\n");
 		printf("	-p              Pad to next exact power of 2. No minimum size!\n");

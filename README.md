@@ -10,7 +10,7 @@ Authors: [Dark Fader](https://github.com/darkfader), BlackThunder and [WinterMut
 
 Usage:
 ```
-gbafix <romfile> [-p] [-t[title]] [-g<game_code>] [-m<maker_code>] [-v<version>]
+gbafix <romfile> [-p] [-t[title]] [-c<game_code>] [-m<maker_code>] [-r<version>]
 
     romfile         ROM input file
     -p              Pad to next exact power of 2. No minimum size!
