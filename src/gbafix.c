@@ -28,11 +28,12 @@
 // gbafix.c
 //---------------------------------------------------------------------------------
 /*
-	Gameboy Advance ROM fixer (by Dark Fader / BlackThunder / WinterMute)
+	Gameboy Advance ROM fixer (by Dark Fader / BlackThunder / WinterMute / Diegoisawesome)
 	Validates header of GBA roms.
 
 	History
 	-------
+	v1.05 - added device type argument, (Diegoisawesome)
 	v1.04 - converted to plain C, (WinterMute)
 	v1.03 - header.fixed, header.device_type
 	v1.02 - redefined the options (rgbfix style), checksum=0
@@ -47,7 +48,7 @@
 #include <string.h>
 #include <stdint.h>
 
-#define VER		"1.04"
+#define VER		"1.05"
 #define ARGV	argv[arg]
 #define VALUE	(ARGV+2)
 #define NUMBER	strtoul(VALUE, NULL, 0)
@@ -61,7 +62,7 @@ typedef struct
 	uint16_t	maker_code;			//
 	uint8_t		fixed;				// 0x96
 	uint8_t		unit_code;			// 0x00
-	uint8_t		device_type;		// 0x00
+	uint8_t		device_type;		// 0x80
 	uint8_t		unused[7];			//
 	uint8_t		game_version;		// 0x00
 	uint8_t		complement;			// 800000A0..800000BC
@@ -99,7 +100,7 @@ const Header good_header =
 	// unit_code
 	0x00,
 	// device type
-	0x00,
+	0x80,
 	// unused
 	{ 0x00,0x00,0x00,0x00,0x00,0x00,0x00 },
 	// game version
@@ -140,8 +141,8 @@ int main(int argc, char *argv[])
 	// show syntax
 	if (argc <= 1)
 	{
-		printf("GBA ROM fixer v"VER" by Dark Fader / BlackThunder / WinterMute \n");
-		printf("Syntax: gbafix <rom.gba> [-p] [-t[title]] [-c<game_code>] [-m<maker_code>] [-r<version>]\n");
+		printf("GBA ROM fixer v"VER" by Dark Fader / BlackThunder / WinterMute / Diegoisawesome \n");
+		printf("Syntax: gbafix <rom.gba> [-p] [-t[title]] [-c<game_code>] [-m<maker_code>] [-r<version>] [-d<device_type>]\n");
 		printf("\n");
 		printf("parameters:\n");
 		printf("	-p              Pad to next exact power of 2. No minimum size!\n");
@@ -149,6 +150,7 @@ int main(int argc, char *argv[])
 		printf("	-c<game_code>   Patch game code (four characters)\n");
 		printf("	-m<maker_code>  Patch maker code (two characters)\n");
 		printf("	-r<version>     Patch game version (number)\n");
+		printf("	-d<device_type> Patch device type (number)\n");
 		return -1;
 	}
 
@@ -171,6 +173,7 @@ int main(int argc, char *argv[])
 	fseek(infile, 0, SEEK_SET);
 	fread(&header, sizeof(header), 1, infile);
 
+	memcpy(&header.device_type, &good_header.device_type, sizeof(header.device_type));
 
 	// parse command line
 	for (arg=1; arg<argc; arg++)
@@ -243,6 +246,13 @@ int main(int argc, char *argv[])
 					break;
 				}
 
+				case 'd':	// device type
+				{
+					if (!VALUE[0]) { printf("Need value for %s\n", ARGV); break; }
+					header.device_type = (unsigned char)NUMBER;
+					break;
+				}
+
 			default:
 				{
 					printf("Invalid option: %s\n", ARGV);
@@ -254,7 +264,6 @@ int main(int argc, char *argv[])
 	// fix some more data
 	memcpy(header.logo, good_header.logo, sizeof(header.logo));
 	memcpy(&header.fixed, &good_header.fixed, sizeof(header.fixed));
-	memcpy(&header.device_type, &good_header.device_type, sizeof(header.device_type));
 
 	// update complement check & total checksum
 	header.complement = 0;
