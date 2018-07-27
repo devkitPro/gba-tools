@@ -6,11 +6,11 @@ Collection of tools for Game Boy Advance development.
 
 Pads and patches GBA ROMs.
 
-Authors: [Dark Fader](https://github.com/darkfader), BlackThunder and [WinterMute](https://github.com/WinterMute).
+Authors: [Dark Fader](https://github.com/darkfader), BlackThunder, [WinterMute](https://github.com/WinterMute), and [Diegoisawesome](https://github.com/Diegoisawesome).
 
 Usage:
 ```
-gbafix <romfile> [-p] [-t[title]] [-c<game_code>] [-m<maker_code>] [-r<version>]
+gbafix <romfile> [-p] [-t[title]] [-c<game_code>] [-m<maker_code>] [-r<version>] [-d<debug>]
 
     romfile         ROM input file
     -p              Pad to next exact power of 2. No minimum size!
@@ -18,6 +18,7 @@ gbafix <romfile> [-p] [-t[title]] [-c<game_code>] [-m<maker_code>] [-r<version>]
     -c<game_code>   Patch game code (four characters)
     -m<maker_code>  Patch maker code (two characters)
     -r<version>     Patch game version (number)
+    -d<debug>       Enable debugging handler and set debug entry point (0 or 1)
 ```
 
 ## gbalzss
