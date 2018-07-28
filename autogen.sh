@@ -1,6 +1,6 @@
 #!/bin/sh
 
-touch AUTHORS ChangeLog NEWS README.md
+touch AUTHORS ChangeLog NEWS
 aclocal
 autoconf
 automake --add-missing -c
